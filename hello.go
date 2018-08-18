@@ -15,4 +15,11 @@ func main() {
 	fmt.Scan(&numero)
 	fmt.Println(&numero)
 
+	var array [4]int
+	array[0] = 22
+	array[1] = numero
+	array[2] = 0
+	array[3] = array[0]
+
+	fmt.Println("Retorno do array", array)
 }
