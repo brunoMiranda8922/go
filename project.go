@@ -87,6 +87,8 @@ func verificarSite(site string) {
 
 func lerArquivo() []string {
 	var site = []string{}
+
+	//arquivo, err := os.Open("sites.txt")
 	arquivo, err := ioutil.ReadFile("sites.txt")
 
 	if err != nil {
@@ -98,9 +100,34 @@ func lerArquivo() []string {
 		//fmt.Println("Arquivo", arquivo)
 		sites := append(strings.Fields(string(arquivo)))
 
-		return sites
-
 	}
 
 	return site
 }
+
+//Outra forma de fazer uma função para abrir e ler um arquivo.
+
+// func lerArquivo() []string {
+
+// 	var sites []string
+
+// 	arquivo, err := os.Open("sites.txt")
+// 	if err != nil {
+// 		fmt.Println("Ocorreu um erro:", err)
+// 	}
+
+// 	leitor := bufio.NewReader(arquivo)
+
+// 	for {
+// 		linha, err := leitor.ReadString('\n')
+// 		linha = strings.TrimSpace(linha)
+// 		sites = append(sites, linha)
+// 		if err == io.EOF {
+// 			break
+// 		}
+// 	}
+
+// 	arquivo.Close()
+
+// 	return sites
+// }
