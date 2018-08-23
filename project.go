@@ -3,8 +3,10 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"os"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -16,6 +18,7 @@ func main() {
 	exibirDono()
 	for {
 		exibirMenu()
+
 		comando := lerComando()
 
 		switch comando {
@@ -76,12 +79,15 @@ func verificarSite(site string) {
 
 	if err != nil {
 		fmt.Println("Ocorreu um erro inesperado %v", err)
+		log.Fatal(err)
 	}
 
 	if resp.StatusCode == 200 {
 		fmt.Println("Site:", site, "foi carregando com sucesso. status:", resp.StatusCode)
+		logsArquivo(site, true)
 	} else {
 		fmt.Println("Site:", site, "Apresentou algum erro. status:", resp.StatusCode)
+		logsArquivo(site, false)
 	}
 }
 
@@ -98,7 +104,8 @@ func lerArquivo() []string {
 	} else {
 
 		//fmt.Println("Arquivo", arquivo)
-		sites := append(strings.Fields(string(arquivo)))
+		sites := strings.Fields(string(arquivo))
+		return sites
 
 	}
 
@@ -131,3 +138,18 @@ func lerArquivo() []string {
 
 // 	return sites
 // }
+
+func logsArquivo(site string, status bool) {
+	logs, err := os.OpenFile("logs.txt", os.O_CREATE|os.O_RDWR|os.O_APPEND, 0777)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	timeCurrent := time.Now().Local()
+	data := timeCurrent.Format(time.RFC850)
+	fmt.Println(data)
+
+	logs.WriteString("Data: " + data + "-" + site + "- online: " + strconv.FormatBool(status) + "\n")
+
+	logs.Close()
+}
