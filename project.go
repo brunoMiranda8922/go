@@ -27,6 +27,7 @@ func main() {
 			iniciarMonitoramento()
 		case 2:
 			fmt.Println("Logs..")
+			imprimirLogs()
 		case 0:
 			fmt.Println("Saindo..")
 			time.Sleep(1050 * time.Millisecond)
@@ -145,10 +146,21 @@ func logsArquivo(site string, status bool) {
 		log.Fatal(err)
 	}
 
+	//data := time.Now().Format("02/01/2006")
 	data := time.Now().Format(time.RFC850)
 	fmt.Println(data)
 
 	logs.WriteString("Data: " + data + "-" + site + "- online: " + strconv.FormatBool(status) + "\n")
 
 	logs.Close()
+}
+
+func imprimirLogs() {
+	mostrar, err := ioutil.ReadFile("logs.txt")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(string(mostrar))
+
 }
