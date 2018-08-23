@@ -1,0 +1,10 @@
+Data: Thursday, 23-Aug-18 19:32:29 -03-https://random-status-code.herokuapp.com/- online: false
+Data: Thursday, 23-Aug-18 19:32:33 -03-https://www.facebook.com/- online: true
+Data: Thursday, 23-Aug-18 19:32:38 -03-http://www.fatecbarueri.edu.br/- online: true
+Data: Thursday, 23-Aug-18 19:32:42 -03-https://www.catho.com.br/- online: true
+Data: Thursday, 23-Aug-18 19:32:47 -03-https://random-status-code.herokuapp.com/- online: false
+Data: Thursday, 23-Aug-18 19:32:52 -03-https://www.facebook.com/- online: true
+Data: Thursday, 23-Aug-18 19:32:56 -03-http://www.fatecbarueri.edu.br/- online: true
+Data: Thursday, 23-Aug-18 19:33:00 -03-https://www.catho.com.br/- online: true
+Data: Thursday, 23-Aug-18 19:33:05 -03-https://random-status-code.herokuapp.com/- online: true
+Data: Thursday, 23-Aug-18 19:33:09 -03-https://www.facebook.com/- online: true
