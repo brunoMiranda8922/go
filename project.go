@@ -145,8 +145,7 @@ func logsArquivo(site string, status bool) {
 		log.Fatal(err)
 	}
 
-	timeCurrent := time.Now().Local()
-	data := timeCurrent.Format(time.RFC850)
+	data := time.Now().Format(time.RFC850)
 	fmt.Println(data)
 
 	logs.WriteString("Data: " + data + "-" + site + "- online: " + strconv.FormatBool(status) + "\n")
